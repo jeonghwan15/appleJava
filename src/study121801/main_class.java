@@ -34,7 +34,7 @@ public class main_class {
 	    // 몇개의 데이터를 저장할 것인지 갯수 정하기
 	    // 타입과 갯수에 맞는 배열 생성
 	    // 타입 - 문자열, 갯수 - 7
-	    // String[] names = new String[7]; 
+	    // String[] names = new String[7];
 	}
 
 }
