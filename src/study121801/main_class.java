@@ -8,7 +8,7 @@ public class main_class {
 		//			  let b = [10,20,30,40];
 		//			  a.push(3123);   b.push(233);
 					  
-	    int arr1 = {101,20};
+	    int[] arr1 = {101,20};
 		
 
 	}
