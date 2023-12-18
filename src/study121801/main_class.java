@@ -12,11 +12,21 @@ public class main_class {
 	    
 	    System.out.println( arr1 [0] );
 	    
-	    int[] arr2 = new int[50];
+	    // int[] arr2 = new int[50];
 	    //	new int[10]
 		// (new)새로운 공간 (int)(정수타입)[10](10공간연속으로 생성)
-
-	    arr1
+	    
+	    System.out.println( arr1[0] );
+	    
+	    int[] arr2 = new int[10];
+	    // new int[10]
+	    
+	    for( int i=0; i<arr2.length; i++) {
+	    	arr2[i]= i*10;
+	    }
+	    System.out.println( arr2[]);
+	    
+	    for()
 	}
 
 }
