@@ -49,6 +49,30 @@ public class main_class {
 	    
 	    Arrays.sort(score);
 	    System.out.println(Arrays.toString(score) );
+	    
+	    // 두개의 배열에 저장된값을 하나의 배열로 합치기
+	    int[] a= {10,20,30,40};
+	    int[] b= new int[] {11,22,33,44};
+	    int[] c= new int[8];
+//	    for( int i=0; i<a.length; i++) {
+//	    	c[i] =a[i];
+//	    	
+//	    	c[i+4] =b[i];
+//	    }
+// arraycopy(복사대상배열, 복사배열시작인덱스, 복사저장할배열, 저장위치, 몇개복사    
+	    System.arraycopy(a, 0, c, 0, a.length);
+	    System.arraycopy(b, 0, c, 4, b.length);
+	    
+	    System.out.println( Arrays.toString(c) );
+	    
+	    int[] data = {170, 168, 182, 174, 175, 169, 177};
+	    // data 배열에는 3학년 1반의 키가 저장되어 있다.
+	    // 키가 175이상만 출력하세요.
+	    for ( int i=0; i < data.length; i++) {
+	    if( data[i] >= 175)
+	    System.out.println("175이상학생 - "+(i+1)+"번째 학생 키"+data[i] );
+	    
+	    }
 	}
 
 }
