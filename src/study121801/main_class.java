@@ -9,6 +9,8 @@ public class main_class {
 		//			  a.push(3123);   b.push(233);
 					  
 	    int[] arr1 = {101,20};
+	    
+	    System.out.println( arr1 [0] );
 		
 
 	}
