@@ -1,5 +1,7 @@
 package study121801;
 
+import java.util.Arrays;
+
 public class main_class {
 
 	public static void main(String[] args) {
@@ -36,6 +38,17 @@ public class main_class {
 	    // 타입과 갯수에 맞는 배열 생성
 	    // 타입 - 문자열, 갯수 - 7
 	    // String[] names = new String[7];
+	    
+	    // 10명의 학생 성적이 저장 된 배열 만들기
+	    int[] score = new int[10];
+	    
+	    for(int i=0; i<score.length; i++) {
+	    	score[i] = (int)(Math.random()*51)+50;
+	    }
+	    System.out.println( Arrays.toString(score) );
+	    
+	    Arrays.sort(score);
+	    System.out.println(Arrays.toString(score) );
 	}
 
 }
