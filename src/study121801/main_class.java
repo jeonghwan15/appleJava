@@ -26,7 +26,15 @@ public class main_class {
 	    }
 	    System.out.println( arr2[]);
 	    
-	    for()
+	    for( int i=0; i<arr2)
+	    	
+	    	
+	    // 자바에서 기본 배열을 생성하여 다룰때
+	    // 배열에 저장할 데이터 정하기( 저장 데이터에 따라 데이터 타입 정해야함 )
+	    // 몇개의 데이터를 저장할 것인지 갯수 정하기
+	    // 타입과 갯수에 맞는 배열 생성
+	    // 타입 - 문자열, 갯수 - 7
+	    // String[] names = new String[7];
 	}
 
 }
