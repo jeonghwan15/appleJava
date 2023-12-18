@@ -26,13 +26,29 @@ public class main_array {
 // String과 list 클래스에서만 사용가능
 		
 	}
-		System.out.println( Arrays.toString(number) );
+	//	System.out.println( Arrays.toString(number) );
 		
-		// num 배열을 한줄에 4개씩 4줄로 출력하세요
+		// number 배열을 한줄에 4개씩 4줄로 출력하세요
+		System.out.println("┌──");
 		for( int i=0; i<number.length; i++) {
 			if(i%4==0)
 				System.out.println();
-			System.out.println( number[i] +" " );
+			System.out.printf( "%2d" , number[i] );
+			
+			int[][] arr2 =new int[3][2];
+			arr2[0][0] = 50;
+			arr2[0][1] = 30;
+			
+			arr2[1][0] = 50;
+			arr2[1][1] = 10;
+			
+			int[][] bingo = new int[][4] {
+				{24,12,45,11} ,{9,4,12,31} , {5,41,39,17}, {1,50,43,22}
+			};
+			 for ( int i=0; i<bingo.lenghth; i++) {
+				 for(int k=0; k<bingo[i].length; k++)
+					 system.out.println();
+			}
 		}
 	}
 }
