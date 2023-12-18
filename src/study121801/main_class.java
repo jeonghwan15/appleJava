@@ -24,9 +24,10 @@ public class main_class {
 	    for( int i=0; i<arr2.length; i++) {
 	    	arr2[i]= i*10;
 	    }
-	    System.out.println( arr2[]);
 	    
-	    for( int i=0; i<arr2)
+	    for( int i=0; i<arr2.length; i++) {
+	    	
+	    }
 	    	
 	    	
 	    // 자바에서 기본 배열을 생성하여 다룰때
