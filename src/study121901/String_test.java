@@ -5,7 +5,7 @@ public class String_test {
 	public static void main(String[] args) {
 		
 		
-		String song = "나는 바나나 알러지 원숭이 그래도 나는 바나나 좋아해1";
+		String song = "나는 바나나 알러지 원숭이 그래도 나는 바나나 좋아해";
 		
 		// 1. 원본은 유지하고 모든 바나나를 오렌지로 변경하여 출력하세요
 		// 2. 과일 알러지 있는 원숭이, 어떤 과일에 알러지 있는지 출력하세요
