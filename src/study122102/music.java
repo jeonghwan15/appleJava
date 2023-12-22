@@ -32,6 +32,6 @@ public class music {
 	}
 }
 
-
+1
 //	int a=456;
 //	Integer.toString(a).charAt(0)//substring(0,1);
