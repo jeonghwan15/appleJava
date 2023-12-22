@@ -64,7 +64,7 @@ public class String_method {
 		 
 		 temp = word.substring(5);
 		 System.out.println( temp );
-		 
+		 1
 		 temp = word.substring(7, 15);
 		 System.out.println( temp );
 		 
