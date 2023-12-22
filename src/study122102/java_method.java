@@ -2,7 +2,7 @@ package study122102;
 
 import java.util.Scanner;
 
-public class java_method {1
+public class java_method {
 
 	static void list_print( music[] mylist) {
 		for( music obj : mylist) {
