@@ -4,11 +4,39 @@ public class book {
 	
 	static int cnt=0;	// 클래스 변수
 	
-	protected String title;	// 인스턴스변수
+	private String title;	// 인스턴스변수
 	String writer;	// 인스턴스변수
 	final int book_num; // 인스턴스 상수
 	
 	
+	public static int getCnt() {
+		return cnt;
+	}
+
+	public static void setCnt(int cnt) {
+		book.cnt = cnt;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+
+	public int getBook_num() {
+		return book_num;
+	}
+
 	book(){  // 생성자메서드
 		book_num=10;
 	}
