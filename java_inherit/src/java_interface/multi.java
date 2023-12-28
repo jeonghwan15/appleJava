@@ -43,7 +43,7 @@ class keyboard implements UsbCable, Bluetooth, Wifi{
 	}
 	@Override
 	public void plugNplay() {
-		System.out.println("꽂으면 바로 사용사능");
+		System.out.println("꽂으면 바로 사용가능");
 	}
 	
 	@Override
