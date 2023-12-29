@@ -3,7 +3,7 @@ package home1227;
 public class car {
 
 	public static void main(String[] args) {
-		Private String cartype;
+		private String cartype;
 		public car() {}
 		public car(String cartype) {
 			this.cartype=cartype;
