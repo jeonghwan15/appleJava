@@ -14,7 +14,7 @@ public class member {
 		this.phone=phone;
 	}
 	
-	@Override
+	@Override	// 중요- 17~22
 	public String toString() {
 		return "이름 : "+name+" 이메일 : "+email+" 연락처 : "+myPhone()+" 성별 : "+gender;
 	}
