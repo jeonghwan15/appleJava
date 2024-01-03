@@ -1,6 +1,7 @@
 package arraylist;
 
-public class book {
+public class book implements Comparable<book>{
+	
 	private String title;
 	private String writer;
 	private int year;
@@ -13,10 +14,42 @@ public class book {
 	}
 	
 	@Override
-	public String toString() {
-		return "Á¦¸ñ : "+title+" ÀúÀÚ : "+writer+" Ãâ°£³âµµ : "+year+"³â";
+	public int compareTo(book b) {
+		
+		return this.title.compareTo(b.title) * -1;
+//		return (this.year - b.year)*-1;
 	}
 	
+	@Override
+	public String toString() {
+		return "ì œëª© : "+title+" ì €ì : "+writer+" ì¶œê°„ë…„ë„ : "+year+"ë…„";
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		String title = (String)o;
+		
+		return this.title.equals(title);
+				
+//		book tmp = (book)o; // ë¹„êµí•  ê°ì²´
+		
+//		boolean same1 = this.title.equals(tmp.title);
+//		boolean same2 = this.writer.equals(tmp.writer);
+//		boolean same3 = this.year == tmp.year;
+//		
+//		return same1 && same2 && same3;
+	}
+	
+	/*
+	 *   String[] n = new String[]{"ê°€","ë‚˜","ë‹¤","ë¼","ë§ˆ"};
+	 * 
+	 *   for( int i=0; i<n.length(); i++){
+	 * 	    if( n[i].equals("ë‹¤") ){
+	 * 			 return i;
+	 * 		 }
+	 *   }
+	 * 
+	 */
 	
 	
 	public String getTitle() {
