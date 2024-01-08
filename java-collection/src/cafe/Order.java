@@ -57,7 +57,7 @@ public class Order {
 			System.out.println("\n===== 주문 내역 ==== \n");
 			System.out.println( select );
 			System.out.printf("카페인 : %dmg, 칼로리:dkacl, .용량 : %dml \n",
-					select.getCaffeine(), select.getCalorie(), select.getM1() );
+					select.getCaffeine(), select.getCalorie(), select.getMl() );
 			System.out.println(" 결제금액 : "+df.format(price));
 		
 			save_history( select.getMenu_name(), price );
