@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -53,7 +54,7 @@ public class Order {
 			}else {
 				price = select.getCost1() !=0 ? select.getCost1() : select.getCost2();
 			}
-			DecimalFormat df = new DecimalFormat("\u20A9","###원");
+			DecimalFormat df = new DecimalFormat("\u20A9###,###원");
 			System.out.println("\n===== 주문 내역 ==== \n");
 			System.out.println( select );
 			System.out.printf("카페인 : %dmg, 칼로리:dkacl, .용량 : %dml \n",
@@ -67,7 +68,7 @@ public class Order {
 	
 	
 	//주문 내역을 Order_history를 통해 저장 메서드
-	private static void savee_history(String menu, int price) {
+	private static void save_history(String menu, int price) {
 		String id = Order_Counter.user.getId();
 		
 		String url = "jdbc:mysql://localhost:3306/user";
