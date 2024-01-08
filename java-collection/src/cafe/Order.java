@@ -1,5 +1,10 @@
 package cafe;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -48,21 +53,44 @@ public class Order {
 			}else {
 				price = select.getCost1() !=0 ? select.getCost1() : select.getCost2();
 			}
-			DecimalFormat df = new DecimalFormat("\u20A9",###원");
+			DecimalFormat df = new DecimalFormat("\u20A9","###원");
 			System.out.println("\n===== 주문 내역 ==== \n");
 			System.out.println( select );
 			System.out.printf("카페인 : %dmg, 칼로리:dkacl, .용량 : %dml \n",
 					select.getCaffeine(), select.getCalorie(), select.getM1() );
 			System.out.println(" 결제금액 : "+df.format(price));
 		
+			save_history( select.getMenu_name(), price );
 		}
-		// 내가 선택한 메뉴가 map의 키값이 아니라면 다시 메뉴를 선택하게 해줘야한다.
-		
-		
+		// 내가 선택한 메뉴가 map의 키값이 아니라면 다시 메뉴를 선택하게 해줘야한다.		
 	}
 	
 	
 	//주문 내역을 Order_history를 통해 저장 메서드
+	private static void savee_history(String menu, int price) {
+		String id = Order_Counter.user.getId();
+		
+		String url = "jdbc:mysql://localhost:3306/user";
+		String user="user";
+		String password="123456";
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		}catch ( ClassNotFoundException e) {
+			System.out.println(" 드라이버 로드실패");
+		}
+		
+		Connection conn=null; // mysql접속 상태값 저장
+		ResultSet set=null; // mysql로부터 데이터를 받는다.
+		PreparedStatement pt=null; // mysql에 quary문 전달
+		try {
+			conn = DriverManager.getConnection(url,user,password);
+			System.out.println("접속 성공");
+		}catch(SQLException e) {
+			System.out.println("접속 실패");
+			e.printStackTrace();
+		}
+	}
 	
 	
 	private static Category SelectCategory(int num) {
