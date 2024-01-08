@@ -48,12 +48,12 @@ public class Order {
 			}else {
 				price = select.getCost1() !=0 ? select.getCost1() : select.getCost2();
 			}
-			DecimalFormat df = new DecimalFormat("\u20A9",###원")
+			DecimalFormat df = new DecimalFormat("\u20A9",###원");
 			System.out.println("\n===== 주문 내역 ==== \n");
 			System.out.println( select );
 			System.out.printf("카페인 : %dmg, 칼로리:dkacl, .용량 : %dml \n",
 					select.getCaffeine(), select.getCalorie(), select.getM1() );
-			System.out.println(" 결제금액 : "+df.foramat(price));
+			System.out.println(" 결제금액 : "+df.format(price));
 		
 		}
 		// 내가 선택한 메뉴가 map의 키값이 아니라면 다시 메뉴를 선택하게 해줘야한다.
