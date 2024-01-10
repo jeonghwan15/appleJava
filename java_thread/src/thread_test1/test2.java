@@ -11,29 +11,29 @@ public class test2 {
 		try {
 			th1.join();
 		}catch(Exception e) {
+			
+		}
 		
-		}
-		System.out.println(" main 메서드 pop ");
+		System.out.println(" main 메서드 pop");
 	}
-	
+
 }
+
+
 class thread1 implements Runnable{
-		@Override
-		public void run() {
-			System.out.println("쓰레드 1번 메소드");
-			two();
-			System.out.println("1번 pop");
-		}
-		public void two() {
-			System.out.println("쓰레드 2번 메서드");
-			three();
-			System.out.println("2번 pop");
-		}
-		public void three() {
-			System.out.println("쓰레드 3번 메서드");
-			System.out.println("3번 pop");
-		}
-
+	@Override
+	public void run() {
+		System.out.println("쓰레드  1번 메서드 push");
+		two();
+		System.out.println("1번 pop");
 	}
-
-	 	
+	public void two() {
+		System.out.println("쓰레드 2번 메서드 push");
+		three();
+		System.out.println("2번 pop");
+	}
+	public void three() {
+		System.out.println("쓰레드 3번 메서드 push");
+		System.out.println("3번 pop");
+	}
+}
