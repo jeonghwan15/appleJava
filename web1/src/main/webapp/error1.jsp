@@ -16,7 +16,3 @@
 <a href="index.jsp">되돌아가기</a>
 </body>
 </html>
-
-
-
-

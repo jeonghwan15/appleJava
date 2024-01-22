@@ -64,6 +64,3 @@ for(Cookie c : cook){
 	
 </body>
 </html>
-
-
-

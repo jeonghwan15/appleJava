@@ -78,8 +78,3 @@ for(int i =0; i<foodList.length; i++){
 
 </body>
 </html>
-
-
-
-
-

@@ -28,10 +28,3 @@
 	//location.href="login.jsp?fail=1";
 	// history.back();
 </script>
-
-
-
-
-
-
-
