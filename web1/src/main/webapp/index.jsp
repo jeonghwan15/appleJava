@@ -73,6 +73,13 @@ String[] names = {"이순신","김유신","장보고","문익점","최무선"};
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<!--Jquery-->
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<% if(part !=null) %>
+	<link rel=stylesheet" href="./static/css/<%=part%>.css">
+	<script src="./static/js/<%=part %>.js"></script>
 </head>
 <body>
 	<% pageContext.include("menu.jsp?user="+user); %>
@@ -111,5 +118,9 @@ String[] names = {"이순신","김유신","장보고","문익점","최무선"};
 }
 %>	
 	
+	
+	
 </body>
 </html>
+
+
