@@ -4,12 +4,12 @@
 <div id="info_wrap">
 
 	<div id="grid">
-		<div class="item"></div>
-		<div class="item"></div>
-		<div class="item"></div>
-		<div class="item"></div>
-		<div class="item"></div>
-		<div class="item"></div>
+		<div class="item picture"></div>
+		<div class="item email_box"></div>
+		<div class="item name_box"></div>
+		<div class="item tel_box"></div>
+		<div class="item login_history"></div>
+		<div class="item active_"></div>
 	</div>
 
 

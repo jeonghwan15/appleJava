@@ -7,8 +7,10 @@
    
   
   
-  
+
 <div id="signin_wrap">
+	<form id="signin">
+	<input type>
 	
 </div>
     

@@ -11,6 +11,7 @@ public class member_logout implements member_action{
 	public String action(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
 		return null;
+		
 	}
 
 }

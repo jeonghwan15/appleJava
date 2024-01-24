@@ -30,7 +30,7 @@ public class member_dao {
 			pt = conn.prepareStatement(sql);
 			pt.setString(1, email);
 			pt.setString(2, pw);
-			re = pt.executeQuery();
+			re                                                                                                                                                                                                                                                                                                                  = pt.executeQuery();
 			if( rs.next() ) { // 참일 경우 로그인 성공
 				return new member(rs.getString("tel"));
 			}

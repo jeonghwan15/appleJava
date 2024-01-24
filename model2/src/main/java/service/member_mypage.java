@@ -9,7 +9,8 @@ public class member_mypage implements member_action{
 
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		// TODO Auto-generated method stub
+		
+		request.setAttribute("prte", response);
 		return null;
 	}
 
