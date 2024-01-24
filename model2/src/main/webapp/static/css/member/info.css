@@ -17,5 +17,7 @@
 }
 
 .picture{
-	grid
+	grid-row:1/4;
+	height:240px;
+}
 }
