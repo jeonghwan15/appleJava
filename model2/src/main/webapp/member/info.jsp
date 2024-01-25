@@ -7,7 +7,7 @@
 
 <c:set var="img" value=""/>
 <c:if test="${user.image !==null }">
-	<c:set var="img" value="style='background:url(http://192.168.0.32/static/image/${user.image } no-repeat)">
+	<c:set var="img" value="style='background:url(http://192.168.0.32/static/image/${user.image } no-repeat center; background-size:contain;'"/>
 </c:if>
 
 
@@ -15,16 +15,15 @@
 	<form method="post" action="/members/infoUpdate" enctype="multipart/form-data">
 		<button>수정</button>
 		<div id="grid">
-			<div class="item picture ${ user.image==null ? 'nonePicture': '' }" ${img }
-	${user.image !=null ? "style='background:url() no-repeat'" }
-			>
-				<c:if test="${user.image==null }">
-				<h4>사진을 등록하세요</h4>
-				<div>
-					<input type="file" name="face" id="face">
-					<label for="face">등록</label>			
-				</div>
+			<div class="item picture ${ user.image==null ? 'nonePicture': '' }" ${img }>
 			
+				<c:if test="${user.image==null }">
+					<h4>사진을 등록하세요</h4>
+					<div>
+						<input type="file" name="face" id="face">
+						<label for="face">등록</label>			
+					</div>
+				</c:if>
 			</div>
 			<div class="item email_box">
 				E-mail : <b>${sessionScope.user.email }</b>
@@ -72,23 +71,3 @@
 		</div>
 	</form>
 </div>
-
-
-
-
-
-
-
-
-
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
