@@ -20,6 +20,7 @@ public class board_dao extends parent_dao{
 	}catch(SQLException("글 상세 불러오기 실패"));
 	e.printStacakTrace();prublic()
 	
+	public
 	
 	// board테이블 불러오기
 	public List<board> Allselect(){

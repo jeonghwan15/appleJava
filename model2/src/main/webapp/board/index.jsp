@@ -68,11 +68,19 @@
 				
 			</tbody>
 			
+<c:set var="skip" value="5"/>
+<c:set var="start" value= "1"/>
+<c:set var="end" value=${pageTotalNum
+<c:if test="${pageTotalNum>skip && pageNum >= (skip/2+1 }">		
+
+</c:if>			
 			<tfoot>
 				<tr>
 					<td colspan="5">
 						
 						<i class="bi bi-chevron-left"></i>
+						
+						<c:forEach var="i" begin=
 						
 						<i class="bi bi-chevron-right"></i>
 						

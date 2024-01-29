@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/*  detail.css */
 
 #detail_wrap{
 	width:1000px;
@@ -18,16 +19,17 @@
 	width:100%;
 	padding:30px;
 	border-top:2px solid #ccc;
-	border-bottom:1px 2solid #ccc;
+	border-bottom:1px solid #ccc;
 }
+
 .update_del{text-align:right;}
 .update_del button{
 	border-radius:10px;
-	padding: 7px 15px;
+	padding:7px 15px;
 	font-size:13px;
 	border:0;
 	cursor:pointer;
+	color:white;
 }
-.update_del button:nth-child(1) { background:#3498db;}
-.update_del button:nth-child(2) { background:#e74c3c;}
-}
+.update_del button:nth-child(1){ background:#3498db;}
+.update_del button:nth-child(2){ background:#e74c3c;}
