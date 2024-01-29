@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import DAO.member_dao;
 import DTO.member;
 
 public class member_update implements member_action{
+	private member_dao dao = new member_dao();
 
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -21,21 +23,23 @@ public class member_update implements member_action{
 		
 		int size = 1024*1024*20;
 		
-		String face =null;
 		String name =null;
+		String pw =null;
 		String tel =null;
+		String face =null;
 		
 		try {
 			
 			MultipartRequest mr = new MultipartRequest(request , path , size, "UTF-8", 
 					new DefaultFileRenamePolicy() );
-
+			
+			email = mr.getParameter("email");
 			name = mr.getParameter("name");
-			tel = mr.getParameter("tel");
+			pw = mr.getParameter("pin");
 			tel = tel.replace(" - ", "");
 			
 			Enumeration em =mr.getFileNames();
-			String file = *(String)em.nextElement();
+			String file = (String)em.nextElement();
 			face = mr.getFilesystemName(file); // mr.getOriginalFileName(file)-원본이름
 			
 		}catch(Exception e) {

@@ -1,52 +1,46 @@
 package DAO;
 
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
 import DTO.LoginHistory;
 import DTO.member;
 
-public class member_dao {
-	private Connection conn=null; //접속
-	private Statement st=null; // sql질의문
-	private PreparedStatement pt =null; //Sql질의문
-	private ResultSet rs=null; // 결과 
-	
-	public member_dao() {
-		DriverLoad();
-		ConnectionDB();
-	}
+public class member_dao extends parent_dao{
 	
 	// 회원정보 수정
 	public void update(member user) {
 		String sql="update member set name=? , tel=? where id=?";
 		try {
-			pt = conn.prepareStatement(sql);
-			pt.setString(1, user.getName());
-			pt.setString(2, user.getTel());
-			pt.setInt(3, user.getNum());
+			pt= conn.prepareStatement(sql);
+			pt.setString(1, user.getName() );
+			pt.setString(2, user.getTel() );
+			pt.setInt(3,  user.getNum());
 			pt.executeUpdate();
 			
 		}catch(SQLException e) {
-		System.out.println("회원 정보 수정 실패");
-		e.printStackTrace();
+			System.out.println("회원 정보 수정 실패");
+			e.printStackTrace();
+		}
 	}
-}
 	
-	// 이미지 불러오기
+	
+	//이미지 불러오기
 	public void getPicture(member user) {
 		String sql="select * from picture where member_id=?";
 		try {
 			pt=conn.prepareStatement(sql);
 			pt.setInt(1, user.getNum());
 			rs = pt.executeQuery();
-			if ( rs.next()) {
+			if( rs.next()) {
 				user.setImage( rs.getString("img_name"));
 			}
 			
@@ -54,7 +48,9 @@ public class member_dao {
 			System.out.println("회원 이미지 가져오기 실패");
 			e.printStackTrace();
 		}
+		
 	}
+
 	//이미지 저장
 	public void pictureInsert(String img, int id) {
 		String sql ="insert into picture(member_id, img_name) values(?,?)";
@@ -63,38 +59,40 @@ public class member_dao {
 			pt.setInt(1, id);
 			pt.setString(2, img);
 			pt.executeUpdate();
-						
+			
 		}catch(SQLException e) {
 			System.out.println("이미지 저장 실패");
 			e.printStackTrace();
 		}
 	}
 	
-	// 로그인 기록 불러오기
+	
+	//로그인 기록 불러오기
 	public List<LoginHistory> getHistory(int id){
 		String sql="select * from loginhistory where member_id=? order by login_date desc";
-		
+	   
 		List<LoginHistory> list = new ArrayList<>();
 		try {
-			pt = conn.prepareStatement(sql);
-			pt.setInt(1, id);
-			rs = pt.executeQuery();
-			while(rs.next()) {
-				list.add( new LoginHistory( rs.getInt("id"), rs.getString("ipaddr"),
-						rs.getTimestamp("login_date") ) );
-			}
-			return list;
+	    	pt = conn.prepareStatement(sql);
+	    	pt.setInt(1, id);
+	    	rs = pt.executeQuery();
+	    	while(rs.next()) {
+	    		list.add( new LoginHistory( rs.getInt("id"), rs.getString("ipaddr"),
+	    				rs.getTimestamp("login_date") ) );
+	    	}
+	    	return list;
 			
-		}catch(SQLException e) {
-			System.out.println("로그인 기록 조회 실패");
-			e.printStackTrace();
-		}
+	    }catch(SQLException e) {
+	    	System.out.println("로그인 기록 조회 실패");
+	    	e.printStackTrace();
+	    }
 		return null;
+	
 	}
 	
 	// 로그인 기록 저장
-	private void login_record(int id, String ip) {
-		String sql="insert into loginhistory(member_id, ipaddr, login_date)";
+	public void login_record(int id, String ip) {
+		String sql="insert into loginhistory(member_id, ipaddr, login_date) ";
 		sql +="values( "+id+" ,'"+ip+"', now())";
 		try {
 			st = conn.createStatement();
@@ -105,6 +103,8 @@ public class member_dao {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	
 	// 로그인 처리 메서드
 	public member findByemailpw(String email, String pw) {
@@ -168,22 +168,4 @@ public class member_dao {
 	}
 	
 	
-	
-	private void DriverLoad() {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		}catch(ClassNotFoundException e) {
-			System.out.println("드라이버 로드 실패");
-		}
-	}
-	private void ConnectionDB() {
-		String url="jdbc:mysql://localhost:3306/javaTest";
-		String user="javaTest";
-		String password="123456";
-		try {
-			conn=DriverManager.getConnection(url,user,password);
-		}catch(SQLException e) {
-			System.out.println("데이터베이스 접속 실패");
-		}
-	}
 }
