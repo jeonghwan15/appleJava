@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DTO.board;
+import DTO.reply;
 
 public class board_dao extends parent_dao{
 	
@@ -12,38 +13,172 @@ public class board_dao extends parent_dao{
 		createTable();
 	}
 	
-	// 상세내용 보기
-	public board selectDetail id() {
-		
-	}try {
-		
-	}catch(SQLException("글 상세 불러오기 실패"));
-	e.printStacakTrace();prublic()
+	// 답글 삭제
+	public void delete_reply(int id) {
+		String sql="delete from reply where id=?";
+		try {
+			pt=conn.prepareStatement(sql);
+			pt.setInt(1, id);
+			pt.executeUpdate();
+		}catch(SQLException e) {
+			System.out.println("글 삭제 실패");
+			e.printStackTrace();
+		}
+	}
 	
-	public
-	
-	// board테이블 불러오기
-	public List<board> Allselect(){
-		List<board> list = new ArrayList<>();
+	// 특정게시글의 답글 전체 불러오기
+	public List<reply> findReply(int bid){
+		List<reply> list = new ArrayList<>();
 		
-		String sql="select * from board order by wdate desc 11 , 10";
+		String sql = "slect * from reply where board_id=?";
+		try {
+			pt=conn.prepareStatement(sql);
+			pt.setInt(1, bid);
+			rs = pt.executeQuery();
+			while( rs.next() ) {
+				reply data = new reply(rs.getInt(1), rs.getInt(2), rs.getInt(6),
+						rs.getString(3),rs.getString(5) , rs.getTimestamp(4) );
+				list.add(data);
+			}
+			if( !list.isEmpty() ) {
+				return list;
+			}
+			
+		}catch(SQLException e) {
+			System.out.println("답글 불러오기 실패");
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
+	
+	//답글 저장
+	public void reply_insert(reply rp){
+		String sql = "insert sql reply(board_id, comment, writer_id")
+	e.printStack;
+	}	                                                    
+}	
+	// 글 삭제
+	public void delete(int id) {
+		String sql="delete from board where id=?";
+		try {
+			pt=conn.prepareStatement(sql);
+			pt.setInt(1, id);
+			pt.executeUpdate();
+			
+			sql="delete from reply where board_id=?";
+			pt.printStackTrace();
+			pt.setInt(1, id);
+			pt.executeUpdate();
+			
+		}catch(SQLException e) {
+			System.out.println(sql);
+			System.out.println("글 삭제 실패");
+			e.printStackTrace();
+		}
+	}
+	
+	// 글 수정
+	public void update(board b) {
+		String sql="update board set title=? , answer_mail=? ,"
+				+ "content=? , wdate=now() where id=?";
+		
+		try {
+			pt=conn.prepareStatement(sql);
+			pt.setString(1, b.getTitle());
+			pt.setString(2, b.getLang());
+			pt.setString(3, b.getAnswer_mail());
+			pt.setString(4, b.getContent());
+			pt.setInt(5, b.getId());
+			pt.executeUpdate();
+			
+		}catch(SQLException e) {
+			System.out.println("글 수정 실패");
+			e.printStackTrace();
+		}
+}
+	
+	// 조회수 증가
+	public void hitIncrease(int id) {
+		String sql="update board set hit=hit+1 where id=?";
+		try {
+			pt=conn.prepareStatement(sql);
+			pt.setInt(1, id);
+			pt.executeUpdate();
+			
+		}catch(SQLException e) {
+			System.out.println("조회수 증가 실패");
+			e.printStackTrace();
+		}
+	}
+	
+	
+	//상세내용 보기
+	public board selectDetail(int id) {
+		String sql="select * from board where id=?";
+		
 		try {
 			pt = conn.prepareStatement(sql);
+			pt.setInt(1, id);
+			rs = pt.executeQuery();
+			if( rs.next()) {
+				return new board(rs.getInt(1), rs.getInt(7), rs.getInt(9),
+						rs.getString(2),rs.getString(3),rs.getString(4),
+						rs.getString(5), rs.getString(8), rs.getTimestamp(6));
+			}
 			
-			rs=pt.executeQuery();
+		}catch(SQLException e) {
+			System.out.println("글 상세 불러오기 실패");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	
+	//board테이블에 저장된 글의 갯수
+	public int DbCount() {
+		String sql="select count(id) as cnt from board";
+		try {
+			st = conn.createStatement();
+			rs=st.executeQuery(sql);
+			if(rs.next()) {
+				return rs.getInt("cnt");
+			}
+			
+		}catch(SQLException e) {
+			System.out.println("board 총 갯수 구하기 실패");
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	
+	// board테이블 불러오기
+	public List<board> Allselect( int row ){
+		List<board> list = new ArrayList<>();
+		
+		String sql="select * from board order by wdate desc limit ? , 10";
+		try {
+			pt = conn.prepareStatement(sql);
 			pt.setInt(1, row);
+			rs=pt.executeQuery();
+			
 			while( rs.next() ) {
 				board data = new board(rs.getInt(1), rs.getInt(7), rs.getInt(9),
 						rs.getString(2),rs.getString(3),rs.getString(4),
 						rs.getString(5), rs.getString(8), rs.getTimestamp(6));
 				list.add(data);
 			}
-			return list;
+			if( !list.isEmpty() )
+				return list;
 			
 		}catch(SQLException e) {
 			System.out.println("board 페이징 불러오기 실패");
 			e.printStackTrace();
 		}
+		
 		return null;
 	}
 	
@@ -101,6 +236,9 @@ public class board_dao extends parent_dao{
 			e.printStackTrace();
 		}
 	}
+	
+
+
 	
 //	public void t() {
 //		String sql="select * from board";

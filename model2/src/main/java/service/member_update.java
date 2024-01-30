@@ -14,31 +14,30 @@ import DTO.member;
 
 public class member_update implements member_action{
 	private member_dao dao = new member_dao();
-
+	
+	
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		String path="C:\\JH\\java\\appleJava\\model2\\src\\main\\webapp\\static\\image";
+		String path="C:\\drone2023\\java\\appleJava\\model2\\src\\main\\webapp\\static\\image";
 		// request.getRealPath("/")+"static/image"
 		
 		int size = 1024*1024*20;
 		
-		String name =null;
-		String pw =null;
-		String tel =null;
 		String face =null;
+		String name = null;
+		String tel =null;
 		
 		try {
 			
-			MultipartRequest mr = new MultipartRequest(request , path , size, "UTF-8", 
+			MultipartRequest mr = new MultipartRequest(request , path, size,"UTF-8",
 					new DefaultFileRenamePolicy() );
 			
-			email = mr.getParameter("email");
 			name = mr.getParameter("name");
-			pw = mr.getParameter("pin");
+			tel = mr.getParameter("tel");
 			tel = tel.replace(" - ", "");
 			
-			Enumeration em =mr.getFileNames();
+			Enumeration em = mr.getFileNames();
 			String file = (String)em.nextElement();
 			face = mr.getFilesystemName(file); // mr.getOriginalFileName(file)-원본이름
 			
@@ -49,12 +48,12 @@ public class member_update implements member_action{
 		
 		member user = (member)request.getSession().getAttribute("user");
 		
-		// 이미지 이름 저장
+		//이미지 이름 저장
 		dao.pictureInsert( face, user.getNum() );
 		
 		// 이름, 연락처 수정
-		user.setName(name); // 변경 이름 객체에 저장
-		user.setTel(tel);	// 변경 연락처 객체에 저장
+		user.setName(name); //변경 이름 객체에 저장
+		user.setTel(tel); // 변경 연락처 객체에 저장
 		dao.update( user );
 		request.getSession().setAttribute("user", user); // 변경된 유저객체로 세션 재생성
 		
@@ -62,8 +61,5 @@ public class member_update implements member_action{
 		
 		return null;
 	}
-	
-	
-	
 
 }

@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.board_dao;
+import DTO.board;
 
 public class board_read  implements board_action{
 	private board_dao dao = new board_dao();
-
+	
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
@@ -22,30 +23,34 @@ public class board_read  implements board_action{
 		int num = Integer.parseInt( request.getParameter("id"));
 		for(Cookie ck : cooks) {
 			String n=ck.getName();
-			if(n.equals(num+ ));
+			if(n.equals(num+"")) {
+				isCook=false; break;
+			}
 		}
 		
 		board view = dao.selectDetail( num );
 		
-	if( isCook) {
-		dao.hitIncrease(num);
-		Cookie cook = new Cookie(num+"","ok");
-		
-		Calendar today = Calendar.getInstance();
-		
-		int hour = today.get(Calendar.HOUR_OF_DAY);
-		int min = today.get(Calendar.MINUTE);
-		int sec = today.get(Calendar.SECOND);
-		// 하루의 마지막 - 23:59:59  -> 23*60*60 + 59*60 + 59
-		//  현재시간 - 23:58:30
-		int last = 23*60*60+59*60+59;
-		int now = hour*60*60+min*60+sec;
-		cook.setMaxAge(last-now);
-		
-		response.addCookie(cook);
+		if( isCook) {
+			dao.hitIncrease(num);
+			Cookie cook = new Cookie(num+"","ok");
+			
+			Calendar today = Calendar.getInstance();
+			int hour = today.get(Calendar.HOUR_OF_DAY);
+			int min = today.get(Calendar.MINUTE);
+			int sec = today.get(Calendar.SECOND);
+			int last = 23*60*60+59*60+59;
+			int now = hour*60*60+min*60+sec;
+			cook.setMaxAge(last-now);
+			
+			response.addCookie(cook);
 		}
 		
 		request.setAttribute("data", view);
 		request.setAttribute("prt", "board/detail");
+		request.setAttribute("reply_list", reply_list)
+		
+		
+		return "/";
 	}
+
 }

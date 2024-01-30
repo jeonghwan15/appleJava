@@ -1,17 +1,19 @@
 /**
  * 
  */
- $("#face").on("change",function( event ){
-	var file = new event.target.files[0];
-	var reader = new FileReader();
-		reader.onload=function(e){
-			$(".photo").css("background", "url("+e.target.result+") no-repeat center")
-			$(".photo").css("background-size", "contain");
-		};
-		reader.readAsDataURL( $(this).files[0])	;	
-	});
-	
  $(function(){
+	
+	$("#face").on("change",function( event ){
+			var file = event.target.files[0];
+			var reader = new FileReader();
+			reader.onload=function(e){
+				$(".photo").css("background", "url("+e.target.result+") no-repeat center");
+				$(".photo").css("background-size","contain");
+			};
+			reader.readAsDataURL( file);
+		});
+	
+	
 	
 	$(".input_data input").on("keyup",function(){
 		var i=0;

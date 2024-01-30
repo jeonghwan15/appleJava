@@ -12,19 +12,22 @@ public class board {
 	private String lang;
 	private Date wdate;
 	private String content;
+	private String email;
+	
 	
 	public board(int mid , String title, String writer , String answer_mail,
-			String lang, String content) {
+			String lang, String content, String email) {
 		this.member_id=mid;
 		this.title=title;
 		this.writer=writer;
 		this.answer_mail=answer_mail;
 		this.lang=lang;
 		this.content=content;
+		this.email=email;
 	}
 	public board(int id, int hit, int mid, String title, String writer, String answer_mail,
-			String lang, String content, Date wdate) {
-		this(mid,title,writer,answer_mail,lang,content);
+			String lang, String content, Date wdate, String email) {
+		this(mid,title,writer,answer_mail,lang,content,email);
 		this.id=id;
 		this.hit=hit;
 		this.wdate=wdate;

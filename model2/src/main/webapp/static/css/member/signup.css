@@ -6,15 +6,16 @@
 	position:relative;
 }
 .input_data{
-	margin:10px 0;
+	position:relative;
+	margin:15px 0;
 	display:flex;
 	width:100%;
-	align-items:center;
 	justify-content:space-between;
+	align-items:center;
 	font-size:25px;
 }
 .input_data input{
-	width:350px;
+	width:300px;
 	height:40px;
 	font-size:25px;
 	border:0;
@@ -27,22 +28,22 @@
 	font-size:30px;
 	border:0;
 	border-radius:10px;
-	background:#4374D9;
+	
 	color:#fff;
 	cursor:pointer;
-	box-shadow:3px 3px 3p #555;
-	text-shdow:2px 2px 2px #999;	
+	box-shadow:3px 3px 3px #555;
+	text-shadow:2px 2px 2px #999;
 }
 .myphoto{
 	display:flex;
 	flex-direction:column;
-	row-gap:7px
-	align-items=center;
+	row-gap:7px;
+	align-items:center;
 }
 .photo{
 	border:1px solid black;
 	width:150px;
-	height:200px
+	height:200px;
 }
 #face{
 	display:none;
@@ -53,13 +54,12 @@
 	background:#223344;
 	color:#eee;
 }
-
 .signBt .active{
 	background:#4374D9;
 }
- .signBt .inactive{
- 	background:#aaa;
- }
+.signBt .inactive{
+	background:#aaa;
+}
 
 .email_msg{
 	position:absolute;
@@ -68,8 +68,4 @@
 	font-size:12px;
 	color:green;
 }
-.warning{ color:red; }
-
-
-
-
+.warning{ color:red;}

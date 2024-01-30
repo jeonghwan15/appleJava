@@ -37,8 +37,37 @@
 	</c:if>	
 	
 	<div id="reply_wrap">
+		<div class="reply_input">
+			<h3>답글 작성</h3>
+			<form method="post" action="/board_reply.do" id="reply">
+				<div class="input_box">
+					<textarea name="comment" id="comment"></textarea>
+					<button class="reply_bt">작성</button>
+				</div>
+			</form>
+		</div>
 	</div>
-	
+	<div class="reply_list">
+		<ul class="reply_list_box">
+		
+		   <c:forEach var="row" items="${row.wdate "}>
+			<li>
+				<div class="reply_info">
+					<b>${row.writer }</b>
+					<small>
+<fmt:formatDate value="${row.wdate }" pattern="yy.MM.dd HH:mm"/>
+					</small>
+				</div>
+				<div class="reply_comment">${row.comment }</div>
+				<div class="del_bt">
+					<c:if test="${row.member_id == user.num }">
+					<a href=javascript:reply_del('${row.id }','${data.id }');")>삭제</a>
+				</div>
+			</li>
+			</c:forEach>
+			
+		</ul>
+	</div>
 </div>
 
 
@@ -50,10 +79,10 @@
 		var really = confirm("정말로 삭제 하시겠습니까? ");
 		if( really){
 		location.href="/board_delete.do?id="+i;
-	}
+	}                                                                                                                                                                                
 	
-	
-	
-
-
+}
+<c:if test="$test">
+	$("#comment").on("focus", function(){
+		alert("로그인 );
 </script>

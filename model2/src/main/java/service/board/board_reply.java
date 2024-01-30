@@ -9,7 +9,7 @@ public class board_reply  implements board_action{
 
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 
