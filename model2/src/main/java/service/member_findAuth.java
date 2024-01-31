@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.member_dao;
 
-public class member_findAuth implements member_action{
+public class member_findAuth {
 	private member_dao dao= new member_dao();
 	
 	@Override
@@ -72,6 +72,7 @@ public class member_findAuth implements member_action{
 		request.getSession().setAttribute("num", auth);
 		request.getSession().setMaxInactiveInterval(180);
 		
+		request.set
 		request.setAttribute("prt", "member/inputAuthNum" );
 	
 	}else {// 회원가입 안된 이메일 주소일 경우

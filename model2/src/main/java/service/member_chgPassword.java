@@ -7,7 +7,7 @@ public class member_chgPassword implements member_action{
 
 	if( authNum.equals(num) ) { // 인증번호가 일치한다면
 		
-		request.setAttribute("prt", "member/newPassword");
+		request.setAttribute("prt", "member/newPassword")
 	
 	}else {// 회원가입 안된 이메일 주소일 경우
 		response.setCharacterEncoding("UTF-8");

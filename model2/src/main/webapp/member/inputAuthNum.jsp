@@ -9,9 +9,10 @@
 		<h3>인증번호 입력</h3>
 		
 		<p>
-			입력하신 이메일로 인증번호를 입력해주세요.
+			입력하신 이메일로 발송된 인증번호를 입력해주세요.
 		</p>
 		<form method="post" action="/members/changePassword">
+			<input type="hidden" name="email"
 			<input type="text" name="authNum" id="authNum" placeholder="인증번호">
 			<button>확 인</button>
 		</form>

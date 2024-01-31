@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 
-</body>
-</html>
+<form metho="post" action="members.resetPassword">
+	<input type="hidden" name="email" value="${email }">
+	<input type="password" name="pin placeholeder
