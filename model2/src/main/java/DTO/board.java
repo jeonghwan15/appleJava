@@ -12,25 +12,31 @@ public class board {
 	private String lang;
 	private Date wdate;
 	private String content;
-	private String email;
-	
+	private int reply_cnt;
 	
 	public board(int mid , String title, String writer , String answer_mail,
-			String lang, String content, String email) {
+			String lang, String content) {
 		this.member_id=mid;
 		this.title=title;
 		this.writer=writer;
 		this.answer_mail=answer_mail;
 		this.lang=lang;
 		this.content=content;
-		this.email=email;
 	}
 	public board(int id, int hit, int mid, String title, String writer, String answer_mail,
-			String lang, String content, Date wdate, String email) {
-		this(mid,title,writer,answer_mail,lang,content,email);
+			String lang, String content, Date wdate) {
+		this(mid,title,writer,answer_mail,lang,content);
 		this.id=id;
 		this.hit=hit;
 		this.wdate=wdate;
+	}
+	public board(int id, int hit, int mid, String title, String writer, String answer_mail,
+			String lang, String content, Date wdate, int cnt) {
+		this(mid,title,writer,answer_mail,lang,content);
+		this.id=id;
+		this.hit=hit;
+		this.wdate=wdate;
+		this.reply_cnt=cnt;
 	}
 	
 	
@@ -87,5 +93,11 @@ public class board {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public int getReply_cnt() {
+		return reply_cnt;
+	}
+	public void setReply_cnt(int reply_cnt) {
+		this.reply_cnt = reply_cnt;
 	}
 }

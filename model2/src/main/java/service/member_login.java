@@ -16,9 +16,11 @@ public class member_login implements member_action{
 		if( request.getParameter("cmd")==null) {
 			request.setAttribute("prt", "member/signin");
 			return "/";
+			
 		}else { // 이메일과 비번으로 로그인 처리
 			String email = request.getParameter("email");
 			String pw = request.getParameter("pin");
+			String preUrl = request.getParameter("cmd");
 			
 			member user = dao.findByemailpw(email,pw);
 			if( user ==null) { // 로그인 실패

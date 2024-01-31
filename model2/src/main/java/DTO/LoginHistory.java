@@ -37,4 +37,5 @@ public class LoginHistory {
 		this.ip = ip;
 	}
 	
+	
 }

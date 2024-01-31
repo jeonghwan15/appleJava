@@ -2,6 +2,10 @@
  * 
  */
  
+$(function(){
+	var preUrl = document.referrer;
+	$("#cmd).va;
+});
 
  function login(){
 	if( $("#email").val()==''){
